@@ -34,6 +34,7 @@ class BrokenLinks extends AbstractPlugin
     {
         parent::init($file);
         add_action('init', array($this, 'initHook'));
+        $this->hooker->hookUp();
 
     }
 
@@ -47,7 +48,6 @@ class BrokenLinks extends AbstractPlugin
 
     public function initHook()
     {
-        $this->hooker->hookUp();
         $this->taxHelper->registerTaxonomies();
         $this->postTypeHelper->registerPostTypes();
     }
